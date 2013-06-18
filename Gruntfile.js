@@ -28,6 +28,16 @@ module.exports = function (grunt) {
       ]
     },
 
+// PHPCS ///////////////////////////////////////////////////////////////////////
+    phpcs: {
+      theme: {
+        dir: 'source'
+      },
+      options: {
+        standard: 'Zend'
+      }
+    },
+
 // UGLIFY //////////////////////////////////////////////////////////////////////
     uglify: {
       main: {
@@ -130,6 +140,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-hashmap');
   grunt.loadNpmTasks('grunt-mkdir');
+  grunt.loadNpmTasks('grunt-phpcs');
 
 // REGISTER TASKS //////////////////////////////////////////////////////////////
   grunt.registerTask('dev', [
