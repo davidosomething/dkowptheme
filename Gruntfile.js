@@ -132,15 +132,14 @@ module.exports = function (grunt) {
 
 // REGISTER TASKS //////////////////////////////////////////////////////////////
   grunt.registerTask('dev', [
-    'jshint',
-    // other tests
-
     'uglify',
     'compass:dev',
     'copy:dev'
   ]);
 
   grunt.registerTask('release', [
+    'test',
+
     'dev',
     'clean:release',
 
