@@ -10,15 +10,6 @@ module.exports = function (grunt) {
       release: [ 'release/*' ]
     },
 
-// MKDIR ///////////////////////////////////////////////////////////////////////
-    mkdir: {
-      all: {
-        options: {
-          create: [ 'release' ]
-        }
-      }
-    },
-
 // JSHINT //////////////////////////////////////////////////////////////////////
     jshint: {
       jshintrc: '.jshintrc',
@@ -26,6 +17,14 @@ module.exports = function (grunt) {
       main: [
         'source/assets/js/script.js'
       ]
+    },
+
+// PHPLINT /////////////////////////////////////////////////////////////////////
+    phplint: {
+      options: {
+        spawnLimit: 10
+      },
+      files: [ 'source/**/*.php' ]
     },
 
 // UGLIFY //////////////////////////////////////////////////////////////////////
@@ -129,7 +128,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-hashmap');
-  grunt.loadNpmTasks('grunt-mkdir');
+  grunt.loadNpmTasks('grunt-phplint');
 
 // REGISTER TASKS //////////////////////////////////////////////////////////////
   grunt.registerTask('dev', [
@@ -160,7 +159,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('test', [
-    'jshint:gruntfile',
+    'jshint',
+    'phplint'
   ]);
 
   grunt.registerTask('default', [
