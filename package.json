@@ -1,6 +1,6 @@
 {
   "name": "dkowptheme",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "DKO WP Theme Framework",
   "main": "Gruntfile.js",
   "scripts": {
