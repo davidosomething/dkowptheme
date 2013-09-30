@@ -1,6 +1,10 @@
 <?php
-/**
- *
- */
+require __DIR__ . '/lib/classes/DKOWPT/DKOWPT.php';
+$dkowpt = DKOWPT::getInstance();
 
-// require __DIR__ . '/lib/classes/DKOWPT/DKOWPT.php';
+$dkowpt::nq('css/main.css');
+
+if ($dkowpt::inEnvironment('LOCAL')) {
+  // $dkowpt::nq('js/templates.js');
+  $dkowpt::nq('js/script.js');
+}

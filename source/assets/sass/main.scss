@@ -8,6 +8,17 @@
 // typography (inc type variables and mixins)
 // icons (inc icon variables and mixins)
 
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+}
+
+.Site-content {
+  flex: 1;
+}
+
 // header
 // footer
 // nav
