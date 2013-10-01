@@ -2,11 +2,11 @@
 /**
  * Template Name: Index
  */
+// controller
 
-get_header();
-?>
+// model
 
-<h1>Index</h1>
-
-<?php
-get_footer();
+// view
+$dkowpt::nq('js/templates.js');
+// $dkowpt::nq('js/ProjectsGrid.js');
+$dkowpt::render('views/pages/home.php');

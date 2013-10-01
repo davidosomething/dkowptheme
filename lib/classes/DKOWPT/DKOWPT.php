@@ -135,13 +135,14 @@ class DKOWPT
   }
 
   /**
-   * partial
-   * Output a template from the partials folder
+   * render
+   * Output a template
    *
    * @param string $filepath
    */
-  static public function partial($filepath) {
-    include get_stylesheet_directory() . '/partials/' . $filepath;
+  static public function render($filepath, $data = array()) {
+    global $dkowpt;
+    include get_stylesheet_directory() . $filepath;
   }
 
 ////////////////////////////////////////////////////////////////////////////////
