@@ -1,6 +1,8 @@
 # Bare WordPress Theme
 
 > A WordPress theme structure with Grunt build and release
+> Includes [dkowpsnippets](https://github.com/davidosomething/dkowpsnippets) in
+> `lib/snippets` as a [git subtree](https://blogs.atlassian.com/2013/05/alternatives-to-git-submodule-git-subtree/).
 
 ## Requirements
 * node.js
@@ -33,7 +35,7 @@ start).
 > manually.
 
 * `source/assets/js/vendor/`
-> External JS libraries not installed through Bower. Put stuff in here manually.
+> External JS libraries not installed through bower. Put stuff in here manually.
 
 * `source/assets/sass/`
 > Your SASS/SCSS files go ahead and edit
