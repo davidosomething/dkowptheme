@@ -133,7 +133,8 @@ module.exports = function (grunt) {
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> */\n',
-        mangle: false
+        mangle: false,
+        sourceMap: 'build/assets/js/map/sourcemap.js'
       },
       build: {
         files: {
