@@ -160,7 +160,11 @@ module.exports = function (grunt) {
       },
       js: {
         files: [ 'source/assets/js/*.js' ],
-        tasks: [ 'jshint:main', 'uglify:main' ]
+        tasks: [ 'jshint:main', 'uglify:build' ]
+      },
+      plugins: {
+        files: [ 'source/assets/js/{components,vendor}/**/*.js' ],
+        tasks: [ 'uglify:plugins' ]
       },
       sass: {
         files: [ 'source/assets/sass/**/*.scss' ],
@@ -182,12 +186,17 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-bump');
-  grunt.loadNpmTasks('grunt-csso'); // @todo
+  grunt.loadNpmTasks('grunt-csso');
   grunt.loadNpmTasks('grunt-hashmap');
 
 // REGISTER TASKS //////////////////////////////////////////////////////////////
   grunt.registerTask('test', [
     'jshint:gruntfile'
+  ]);
+
+  grunt.registerTask('init', [
+    'build',            // create build folder from source
+    'uglify:plugins'
   ]);
 
   grunt.registerTask('default', [
@@ -196,7 +205,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('release', [
-    'build',            // create build folder from source
+    'init',
     'clean:release',
     'copy:release',     // copy build folder to release
     'csso:release',     // further release compilation
