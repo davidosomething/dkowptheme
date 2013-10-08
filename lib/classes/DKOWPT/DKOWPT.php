@@ -23,6 +23,7 @@ class DKOWPT
     static::$assets_directory_uri = get_stylesheet_directory_uri() . static::$assets_directory;
 
     add_action('widgets_init', array($this, 'unregisterDefaultWidgets'));
+    add_action('wp_enqueue_scripts', array($this, 'enqueueHook'));
   }
 
   /**
@@ -149,6 +150,9 @@ class DKOWPT
 ////////////////////////////////////////////////////////////////////////////////
 // Actions and Filters
 ////////////////////////////////////////////////////////////////////////////////
+  public function enqueueHook() {
+  }
+
   public function unregisterDefaultwidgets() {
     unregister_widget( 'WP_Widget_Pages' );
     unregister_widget( 'WP_Widget_Calendar' );
