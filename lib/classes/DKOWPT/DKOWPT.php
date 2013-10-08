@@ -143,7 +143,7 @@ class DKOWPT
   static public function render($filepath, $data = array()) {
     global $dkowpt;
     extract($data);
-    include get_stylesheet_directory() . $filepath;
+    include trailingslashit(get_stylesheet_directory()) . $filepath;
   }
 
 ////////////////////////////////////////////////////////////////////////////////
